@@ -13,7 +13,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>date</column_label>
+        <column_label>u_date</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -35,7 +35,7 @@
         <help/>
         <hint/>
         <internal_type display_value="">glide_date</internal_type>
-        <label>date</label>
+        <label>u_date</label>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
         <model display_value="flow_and_script_decision_test">1e5d32800fabba102e576dd530d1b29d</model>
@@ -61,13 +61,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-03-06 06:40:02</sys_created_on>
         <sys_id>90100f840fabba102e576dd530d1b28b</sys_id>
-        <sys_name>date</sys_name>
+        <sys_name>u_date</sys_name>
         <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
         <sys_policy/>
         <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
         <sys_update_name>sys_decision_input_90100f840fabba102e576dd530d1b28b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-06 06:40:03</sys_updated_on>
+        <sys_updated_on>2026-03-10 03:39:01</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

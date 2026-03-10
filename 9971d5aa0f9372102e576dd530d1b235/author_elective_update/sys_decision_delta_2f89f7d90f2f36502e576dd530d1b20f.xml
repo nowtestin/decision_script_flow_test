@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_delta">
+    <sys_decision_delta action="DELETE">
+        <access>public</access>
+        <active>false</active>
+        <answer_table>sys_decision_multi_result</answer_table>
+        <answer_type>reference</answer_type>
+        <delta/>
+        <description/>
+        <enable_publishing>false</enable_publishing>
+        <label/>
+        <name>flow_and_script_decision_testv2 delta</name>
+        <parent display_value="flow_and_script_decision_testv2">12d9e3d90fab36502e576dd530d1b25b</parent>
+        <reference_qualifier/>
+        <status>draft</status>
+        <sys_class_name>sys_decision_delta</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:03:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2f89f7d90f2f36502e576dd530d1b20f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>flow_and_script_decision_testv2 delta</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sys_decision_delta_2f89f7d90f2f36502e576dd530d1b20f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 08:03:38</sys_updated_on>
+    </sys_decision_delta>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test">9971d5aa0f9372102e576dd530d1b235</application>
+        <file_path/>
+        <instance_id>b0e25b9e3bdf7e14986d048aa4e45a4c</instance_id>
+        <instance_name>dev364288</instance_name>
+        <name>sys_decision_delta_2f89f7d90f2f36502e576dd530d1b20f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_delta"><sys_decision_delta action="INSERT_OR_UPDATE"><access>public</access><active>false</active><answer_table>sys_decision_multi_result</answer_table><answer_type>reference</answer_type><delta/><description/><enable_publishing>false</enable_publishing><label/><name>flow_and_script_decision_testv2 delta</name><parent display_value="flow_and_script_decision_testv2">12d9e3d90fab36502e576dd530d1b25b</parent><reference_qualifier/><status>draft</status><sys_class_name>sys_decision_delta</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-03-10 08:03:38</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>2f89f7d90f2f36502e576dd530d1b20f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>flow_and_script_decision_testv2 delta</sys_name><sys_overrides/><sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package><sys_policy/><sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope><sys_update_name>sys_decision_delta_2f89f7d90f2f36502e576dd530d1b20f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-03-10 08:03:38</sys_updated_on></sys_decision_delta></record_update>]]></payload>
+        <payload_hash>392474983</payload_hash>
+        <record_name>flow_and_script_decision_testv2 delta</record_name>
+        <reverted_from/>
+        <source>f1f1e3cc0fabba102e576dd530d1b2be</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:03:38</sys_created_on>
+        <sys_id>6f89f7d90f2f36502e576dd530d1b213</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19cd6c5e0e90000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 08:03:38</sys_updated_on>
+        <type>Delta Decision Table</type>
+        <update_guid>eb89f7d9cd2f3650709ca6d7a4ae9712</update_guid>
+        <update_guid_history>eb89f7d9cd2f3650709ca6d7a4ae9712:392474983</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:13:29</sys_created_on>
+        <sys_db_object display_value="" name="sys_decision_delta">sys_decision_delta</sys_db_object>
+        <sys_id>1c0a2530def44345aa8ac1a361e58f79</sys_id>
+        <sys_metadata>2f89f7d90f2f36502e576dd530d1b20f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>flow_and_script_decision_testv2 delta</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_scope_delete display_value="">41f55643b9304baa94ae148183eeee04</sys_scope_delete>
+        <sys_update_name>sys_decision_delta_2f89f7d90f2f36502e576dd530d1b20f</sys_update_name>
+        <sys_update_version display_value="sys_decision_delta_2f89f7d90f2f36502e576dd530d1b20f">6f89f7d90f2f36502e576dd530d1b213</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 08:13:29</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

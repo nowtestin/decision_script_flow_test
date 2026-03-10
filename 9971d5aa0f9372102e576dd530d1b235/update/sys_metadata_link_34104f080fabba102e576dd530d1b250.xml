@@ -3,7 +3,7 @@
         <directory>update</directory>
         <documentkey>7c104f080fabba102e576dd530d1b24e</documentkey>
         <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_question">
-    <sys_decision_question action="INSERT_OR_UPDATE">
+    <sys_decision_question action="DELETE">
         <active>true</active>
         <answer>78104f080fabba102e576dd530d1b22e</answer>
         <condition table="var__m_sys_decision_input_1e5d32800fabba102e576dd530d1b29d">u_dateBETWEENjavascript:gs.dateGenerate('2026-04-01','start')@javascript:gs.dateGenerate('2027-03-31','end')^EQ<item endquery="false" field="u_date" goto="false" newquery="false" operator="BETWEEN" or="false" value="javascript:gs.dateGenerate('2026-04-01','start')@javascript:gs.dateGenerate('2027-03-31','end')"/>
@@ -13,7 +13,7 @@
         <default_answer>false</default_answer>
         <input_table>var__m_sys_decision_input_1e5d32800fabba102e576dd530d1b29d</input_table>
         <label>flow_and_script_decision_test_200</label>
-        <marked_for_deletion>false</marked_for_deletion>
+        <marked_for_deletion>true</marked_for_deletion>
         <order>200</order>
         <sys_class_name>sys_decision_question</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -21,7 +21,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>7c104f080fabba102e576dd530d1b24e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>flow_and_script_decision_test_200</sys_name>
         <sys_overrides/>
         <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
@@ -29,7 +29,7 @@
         <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
         <sys_update_name>sys_decision_question_7c104f080fabba102e576dd530d1b24e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-06 06:40:05</sys_updated_on>
+        <sys_updated_on>2026-03-10 03:38:56</sys_updated_on>
     </sys_decision_question>
 </record_update>
 ]]></payload>
@@ -37,14 +37,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-03-06 06:40:05</sys_created_on>
         <sys_id>34104f080fabba102e576dd530d1b250</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>flow_and_script_decision_test_200</sys_name>
         <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
         <sys_policy/>
         <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
         <sys_update_name>sys_metadata_link_34104f080fabba102e576dd530d1b250</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-06 06:40:05</sys_updated_on>
+        <sys_updated_on>2026-03-10 03:39:03</sys_updated_on>
         <tablename>sys_decision_question</tablename>
     </sys_metadata_link>
 </record_update>

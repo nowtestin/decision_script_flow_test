@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition">
+    <sn_decision_table_decision_condition action="INSERT_OR_UPDATE">
+        <decision_input/>
+        <decision_table display_value="flow_and_script_decision_test delta">bd752f5d0f6b36502e576dd530d1b2f8</decision_table>
+        <default_operator>=</default_operator>
+        <description>帳票ID</description>
+        <field/>
+        <field_label/>
+        <field_parent_table/>
+        <label>reco_pro_id</label>
+        <order>50</order>
+        <parent display_value="">fbfcfed10f6736502e576dd530d1b296</parent>
+        <reference display_value="Catalog Item" name="sc_cat_item">1c7f620a187632108bb255f46a373aa4</reference>
+        <sys_class_name>sn_decision_table_decision_condition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 06:35:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>e2756b910fab36502e576dd530d1b203</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sn_decision_table_decision_condition_e2756b910fab36502e576dd530d1b203</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 06:35:54</sys_updated_on>
+        <type display_value="Reference">52a227c1bf3320001875647fcf07396a</type>
+    </sn_decision_table_decision_condition>
+</record_update>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="DELETE">
+        <before>false</before>
+        <description/>
+        <name>test_script</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[// ==============================================
+// CatalogFlowScriptManager テストスクリプト
+// ==============================================
+var testMode = true; // true: 更新を実行しない（ログのみ）、false: 実際に更新
+var debugLog = true; // true: 詳細なデバッグログを出力
+
+// 1. テスト用のモッククラス（Decision Table結果を固定）
+var TestCatalogFlowScriptManager = Class.create();
+TestCatalogFlowScriptManager.prototype = Object.extendsObject(CatalogFlowScriptManager, {
+
+    // Decision Tableの結果を固定値で返す（テスト用にオーバーライド）
+    _getDecisionTableResults: function() {
+        // テスト用の固定結果（実際の環境に合わせて修正）
+        return [
+            {
+                u_app_id: "test", // テスト用のsys_scope（複数件）
+                u_type: "script",
+                u_script_name: "onload_old",
+                u_flow_name: ""
+            },
+            {
+                u_app_id: "test",
+                u_type: "flow",
+                u_script_name: "",
+                u_flow_name: "Submit Task Test"
+            }
+        ];
+    },
+
+    // Script更新処理をテストモード対応に修正
+    _handleScriptSwitch: function(appIds, targetScriptName) {
+        if (debugLog) gs.info("【テスト】Script切替開始 - appIds: " + appIds + ", targetScriptName: " + targetScriptName);
+        
+        for (var i = 0; i < appIds.length; i++) {
+            var appId = appIds[i];
+            if (debugLog) gs.info("【テスト】対象appId: " + appId);
+
+            // 1. 対象Scriptの検索（実際のデータを取得）
+            var grScript = new GlideRecord("catalog_script_client");
+            grScript.addQuery("sys_scope", appId);
+            grScript.query();
+            
+            // 2. 無効化処理（テストモード判定）
+            while (grScript.next()) {
+                if (debugLog) gs.info("【テスト】Script無効化予定: " + grScript.name + " (sys_id: " + grScript.sys_id + ")");
+                if (!testMode) {
+                    grScript.active = false;
+                    grScript.update();
+                }
+            }
+
+            // 3. 指定Scriptの有効化処理（テストモード判定）
+            var grTargetScript = new GlideRecord("catalog_script_client");
+            grTargetScript.addQuery("sys_scope", appId);
+            grTargetScript.addQuery("name", targetScriptName);
+            grTargetScript.query();
+            
+            if (grTargetScript.next()) {
+                if (debugLog) gs.info("【テスト】Script有効化予定: " + grTargetScript.name + " (sys_id: " + grTargetScript.sys_id + ")");
+                if (!testMode) {
+                    grTargetScript.active = true;
+                    grTargetScript.update();
+                }
+            } else {
+                gs.warn("【テスト】指定Scriptが存在しません - appId: " + appId + ", scriptName: " + targetScriptName);
+            }
+        }
+    },
+
+    // Flow更新処理をテストモード対応に修正
+    _handleFlowSwitch: function(appIds, targetFlowName) {
+        if (debugLog) gs.info("【テスト】Flow切替開始 - appIds: " + appIds + ", targetFlowName: " + targetFlowName);
+        
+        for (var i = 0; i < appIds.length; i++) {
+            var appId = appIds[i];
+            if (debugLog) gs.info("【テスト】対象appId: " + appId);
+
+            // 1. 対象Flowの検索（実際のデータを取得）
+            var grFlow = new GlideRecord("sys_hub_flow");
+            grFlow.addQuery("sys_scope", appId);
+            grFlow.query();
+            
+            // 2. 無効化処理（テストモード判定）
+            while (grFlow.next()) {
+                if (debugLog) gs.info("【テスト】Flow無効化予定: " + grFlow.name + " (sys_id: " + grFlow.sys_id + ")");
+                if (!testMode) {
+                    grFlow.active = false;
+                    grFlow.update();
+                }
+            }
+
+            // 3. 指定Flowの有効化処理（テストモード判定）
+            var grTargetFlow = new GlideRecord("sys_hub_flow");
+            grTargetFlow.addQuery("sys_scope", appId);
+            grTargetFlow.addQuery("name", targetFlowName);
+            grTargetFlow.query();
+            
+            if (grTargetFlow.next()) {
+                if (debugLog) gs.info("【テスト】Flow有効化予定: " + grTargetFlow.name + " (sys_id: " + grTargetFlow.sys_id + ")");
+                if (!testMode) {
+                    grTargetFlow.active = true;
+                    grTargetFlow.update();
+                }
+            } else {
+                gs.warn("【テスト】指定Flowが存在しません - appId: " + appId + ", flowName: " + targetFlowName);
+            }
+        }
+    },
+
+    type: 'TestCatalogFlowScriptManager'
+});
+
+// 2. テスト実行
+try {
+    gs.info("=== テスト実行開始（テストモード: " + (testMode ? "ON" : "OFF") + "）===");
+    var testManager = new TestCatalogFlowScriptManager();
+    testManager.executeAutoSwitch();
+    gs.info("=== テスト実行完了 ===");
+} catch (e) {
+    gs.error("=== テスト中にエラー発生 ===");
+    gs.error("エラー内容: " + e.getMessage());
+    gs.error("行番号: " + e.getLineNumber());
+    gs.error("スタックトレース: " + e.getStackTrace());
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:55:49</sys_created_on>
+        <sys_id>02c404a10faf36502e576dd530d1b2fd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>test_script</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sys_script_fix_02c404a10faf36502e576dd530d1b2fd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 09:07:15</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test">9971d5aa0f9372102e576dd530d1b235</application>
+        <file_path/>
+        <instance_id>b0e25b9e3bdf7e14986d048aa4e45a4c</instance_id>
+        <instance_name>dev364288</instance_name>
+        <name>sys_script_fix_02c404a10faf36502e576dd530d1b2fd</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_fix"&gt;&lt;sys_script_fix action="INSERT_OR_UPDATE"&gt;&lt;before&gt;false&lt;/before&gt;&lt;description/&gt;&lt;name&gt;test_script&lt;/name&gt;&lt;record_for_rollback&gt;true&lt;/record_for_rollback&gt;&lt;script&gt;&lt;![CDATA[// ==============================================
+// CatalogFlowScriptManager テストスクリプト
+// ==============================================
+var testMode = true; // true: 更新を実行しない（ログのみ）、false: 実際に更新
+var debugLog = true; // true: 詳細なデバッグログを出力
+
+// 1. テスト用のモッククラス（Decision Table結果を固定）
+var TestCatalogFlowScriptManager = Class.create();
+TestCatalogFlowScriptManager.prototype = Object.extendsObject(CatalogFlowScriptManager, {
+
+    // Decision Tableの結果を固定値で返す（テスト用にオーバーライド）
+    _getDecisionTableResults: function() {
+        // テスト用の固定結果（実際の環境に合わせて修正）
+        return [
+            {
+                u_app_id: "test", // テスト用のsys_scope（複数件）
+                u_type: "script",
+                u_script_name: "onload_old",
+                u_flow_name: ""
+            },
+            {
+                u_app_id: "test",
+                u_type: "flow",
+                u_script_name: "",
+                u_flow_name: "Submit Task Test"
+            }
+        ];
+    },
+
+    // Script更新処理をテストモード対応に修正
+    _handleScriptSwitch: function(appIds, targetScriptName) {
+        if (debugLog) gs.info("【テスト】Script切替開始 - appIds: " + appIds + ", targetScriptName: " + targetScriptName);
+        
+        for (var i = 0; i &lt; appIds.length; i++) {
+            var appId = appIds[i];
+            if (debugLog) gs.info("【テスト】対象appId: " + appId);
+
+            // 1. 対象Scriptの検索（実際のデータを取得）
+            var grScript = new GlideRecord("catalog_script_client");
+            grScript.addQuery("sys_scope", appId);
+            grScript.query();
+            
+            // 2. 無効化処理（テストモード判定）
+            while (grScript.next()) {
+                if (debugLog) gs.info("【テスト】Script無効化予定: " + grScript.name + " (sys_id: " + grScript.sys_id + ")");
+                if (!testMode) {
+                    grScript.active = false;
+                    grScript.update();
+                }
+            }
+
+            // 3. 指定Scriptの有効化処理（テストモード判定）
+            var grTargetScript = new GlideRecord("catalog_script_client");
+            grTargetScript.addQuery("sys_scope", appId);
+            grTargetScript.addQuery("name", targetScriptName);
+            grTargetScript.query();
+            
+            if (grTargetScript.next()) {
+                if (debugLog) gs.info("【テスト】Script有効化予定: " + grTargetScript.name + " (sys_id: " + grTargetScript.sys_id + ")");
+                if (!testMode) {
+                    grTargetScript.active = true;
+                    grTargetScript.update();
+                }
+            } else {
+                gs.warn("【テスト】指定Scriptが存在しません - appId: " + appId + ", scriptName: " + targetScriptName);
+            }
+        }
+    },
+
+    // Flow更新処理をテストモード対応に修正
+    _handleFlowSwitch: function(appIds, targetFlowName) {
+        if (debugLog) gs.info("【テスト】Flow切替開始 - appIds: " + appIds + ", targetFlowName: " + targetFlowName);
+        
+        for (var i = 0; i &lt; appIds.length; i++) {
+            var appId = appIds[i];
+            if (debugLog) gs.info("【テスト】対象appId: " + appId);
+
+            // 1. 対象Flowの検索（実際のデータを取得）
+            var grFlow = new GlideRecord("sys_hub_flow");
+            grFlow.addQuery("sys_scope", appId);
+            grFlow.query();
+            
+            // 2. 無効化処理（テストモード判定）
+            while (grFlow.next()) {
+                if (debugLog) gs.info("【テスト】Flow無効化予定: " + grFlow.name + " (sys_id: " + grFlow.sys_id + ")");
+                if (!testMode) {
+                    grFlow.active = false;
+                    grFlow.update();
+                }
+            }
+
+            // 3. 指定Flowの有効化処理（テストモード判定）
+            var grTargetFlow = new GlideRecord("sys_hub_flow");
+            grTargetFlow.addQuery("sys_scope", appId);
+            grTargetFlow.addQuery("name", targetFlowName);
+            grTargetFlow.query();
+            
+            if (grTargetFlow.next()) {
+                if (debugLog) gs.info("【テスト】Flow有効化予定: " + grTargetFlow.name + " (sys_id: " + grTargetFlow.sys_id + ")");
+                if (!testMode) {
+                    grTargetFlow.active = true;
+                    grTargetFlow.update();
+                }
+            } else {
+                gs.warn("【テスト】指定Flowが存在しません - appId: " + appId + ", flowName: " + targetFlowName);
+            }
+        }
+    },
+
+    type: 'TestCatalogFlowScriptManager'
+});
+
+// 2. テスト実行
+try {
+    gs.info("=== テスト実行開始（テストモード: " + (testMode ? "ON" : "OFF") + "）===");
+    var testManager = new TestCatalogFlowScriptManager();
+    testManager.executeAutoSwitch();
+    gs.info("=== テスト実行完了 ===");
+} catch (e) {
+    gs.error("=== テスト中にエラー発生 ===");
+    gs.error("エラー内容: " + e.getMessage());
+    gs.error("行番号: " + e.getLineNumber());
+    gs.error("スタックトレース: " + e.getStackTrace());
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_fix&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-03-10 08:55:49&lt;/sys_created_on&gt;&lt;sys_id&gt;02c404a10faf36502e576dd530d1b2fd&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;test_script&lt;/sys_name&gt;&lt;sys_package display_value="test" source="x_846092_test"&gt;9971d5aa0f9372102e576dd530d1b235&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="test"&gt;9971d5aa0f9372102e576dd530d1b235&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_fix_02c404a10faf36502e576dd530d1b2fd&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-03-10 09:07:15&lt;/sys_updated_on&gt;&lt;unloadable&gt;false&lt;/unloadable&gt;&lt;/sys_script_fix&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-214873956</payload_hash>
+        <record_name>test_script</record_name>
+        <reverted_from/>
+        <source>f1f1e3cc0fabba102e576dd530d1b2be</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 09:07:15</sys_created_on>
+        <sys_id>6b18c0650faf36502e576dd530d1b2e9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19cd70020cf0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 09:07:15</sys_updated_on>
+        <type>Fix Script</type>
+        <update_guid>a718c06554af365079828c75c1e843e8</update_guid>
+        <update_guid_history>a718c06554af365079828c75c1e843e8:-214873956,9085c8e1feaf3650d3c75d7dd4cc6a34:-682432279</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 09:15:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_fix">sys_script_fix</sys_db_object>
+        <sys_id>2899997cb6234308801f5b8c5c213564</sys_id>
+        <sys_metadata>02c404a10faf36502e576dd530d1b2fd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test_script</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_scope_delete display_value="">41f55643b9304baa94ae148183eeee04</sys_scope_delete>
+        <sys_update_name>sys_script_fix_02c404a10faf36502e576dd530d1b2fd</sys_update_name>
+        <sys_update_version display_value="sys_script_fix_02c404a10faf36502e576dd530d1b2fd">6b18c0650faf36502e576dd530d1b2e9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 09:15:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

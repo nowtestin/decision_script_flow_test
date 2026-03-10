@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_846092_test.CCSFlowSwitchByDT</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>CCSFlowSwitchByDT</name>
+        <sandbox_callable>true</sandbox_callable>
+        <script><![CDATA[var CCSFlowSwitchByDT = Class.create();
+CCSFlowSwitchByDT.prototype = {
+    initialize: function() {},
+
+    /**
+     * Record Producer対応版：有効なCCS/Flowを取得
+     * @param {String} rpSysId Record ProducerのSys ID（任意）
+     * @return {Object} 各CCS/FlowのSys ID
+     */
+    getActiveItems: function(rpSysId) {
+        var result = {
+            u_reco_pro_id: '',
+            u_script_name: '',
+            u_flow_name: ''
+        };
+
+        try {
+            var dtAPI = new sn_dt.DecisionTableAPI();
+            var inputs = {
+                u_date: new GlideDate(),
+				u_type:'script'
+
+            };
+
+
+            // Decision Table:flow_and_script_decision_test実行
+            var decisionResult = dtAPI.getDecision({
+                decisionTableSysId: '12d9e3d90fab36502e576dd530d1b25b',
+                inputs: inputs
+            });
+
+            // 結果抽出
+            if (decisionResult && decisionResult.outputs) {
+                result.ccs_onload_sys_id = decisionResult.outputs.u_onload_script_name || '';
+                result.ccs_onchange_sys_id = decisionResult.outputs.u_onchange_name || '';
+                result.ccs_onsubmit_sys_id = decisionResult.outputs.u_submit_name || '';
+                result.flow_sys_id = decisionResult.outputs.u_submit_name || '';
+            }
+        } catch (e) {
+            gs.error('CCSFlowSwitchByDTエラー：' + e.message);
+            this._setDefaultValues(result); // デフォルト値設定
+        }
+        return result;
+    },
+
+    // デフォルト値設定メソッド（省略）
+    _setDefaultValues: function(result) {
+        result.ccs_onload_sys_id = 'DEFAULT_ONLOAD_SYS_ID';
+        result.ccs_onchange_sys_id = 'DEFAULT_ONCHANGE_SYS_ID';
+        result.ccs_onsubmit_sys_id = 'DEFAULT_ONSUBMIT_SYS_ID';
+        result.flow_sys_id = 'DEFAULT_FLOW_SYS_ID';
+    },
+
+    type: 'CCSFlowSwitchByDT'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-06 07:02:03</sys_created_on>
+        <sys_id>e2c40b800febba102e576dd530d1b20f</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>CCSFlowSwitchByDT</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sys_script_include_e2c40b800febba102e576dd530d1b20f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 07:26:59</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test">9971d5aa0f9372102e576dd530d1b235</application>
+        <file_path/>
+        <instance_id>b0e25b9e3bdf7e14986d048aa4e45a4c</instance_id>
+        <instance_name>dev364288</instance_name>
+        <name>sys_script_include_e2c40b800febba102e576dd530d1b20f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_846092_test.CCSFlowSwitchByDT&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;CCSFlowSwitchByDT&lt;/name&gt;&lt;sandbox_callable&gt;true&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var CCSFlowSwitchByDT = Class.create();
+CCSFlowSwitchByDT.prototype = {
+    initialize: function() {},
+
+    /**
+     * Record Producer対応版：有効なCCS/Flowを取得
+     * @param {String} rpSysId Record ProducerのSys ID（任意）
+     * @return {Object} 各CCS/FlowのSys ID
+     */
+    getActiveItems: function(rpSysId) {
+        var result = {
+            u_reco_pro_id: '',
+            u_script_name: '',
+            u_flow_name: ''
+        };
+
+        try {
+            var dtAPI = new sn_dt.DecisionTableAPI();
+            var inputs = {
+                u_date: new GlideDate(),
+				u_type:'script'
+
+            };
+
+
+            // Decision Table:flow_and_script_decision_test実行
+            var decisionResult = dtAPI.getDecision({
+                decisionTableSysId: '12d9e3d90fab36502e576dd530d1b25b',
+                inputs: inputs
+            });
+
+            // 結果抽出
+            if (decisionResult &amp;&amp; decisionResult.outputs) {
+                result.ccs_onload_sys_id = decisionResult.outputs.u_onload_script_name || '';
+                result.ccs_onchange_sys_id = decisionResult.outputs.u_onchange_name || '';
+                result.ccs_onsubmit_sys_id = decisionResult.outputs.u_submit_name || '';
+                result.flow_sys_id = decisionResult.outputs.u_submit_name || '';
+            }
+        } catch (e) {
+            gs.error('CCSFlowSwitchByDTエラー：' + e.message);
+            this._setDefaultValues(result); // デフォルト値設定
+        }
+        return result;
+    },
+
+    // デフォルト値設定メソッド（省略）
+    _setDefaultValues: function(result) {
+        result.ccs_onload_sys_id = 'DEFAULT_ONLOAD_SYS_ID';
+        result.ccs_onchange_sys_id = 'DEFAULT_ONCHANGE_SYS_ID';
+        result.ccs_onsubmit_sys_id = 'DEFAULT_ONSUBMIT_SYS_ID';
+        result.flow_sys_id = 'DEFAULT_FLOW_SYS_ID';
+    },
+
+    type: 'CCSFlowSwitchByDT'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-03-06 07:02:03&lt;/sys_created_on&gt;&lt;sys_id&gt;e2c40b800febba102e576dd530d1b20f&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;CCSFlowSwitchByDT&lt;/sys_name&gt;&lt;sys_package display_value="test" source="x_846092_test"&gt;9971d5aa0f9372102e576dd530d1b235&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="test"&gt;9971d5aa0f9372102e576dd530d1b235&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_e2c40b800febba102e576dd530d1b20f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-03-10 07:26:59&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>722655906</payload_hash>
+        <record_name>CCSFlowSwitchByDT</record_name>
+        <reverted_from/>
+        <source>f1f1e3cc0fabba102e576dd530d1b2be</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 07:26:59</sys_created_on>
+        <sys_id>fe21bb990feb36502e576dd530d1b208</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19cd6a452940000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 07:26:59</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>3e21bb992deb3650be3933df2df92007</update_guid>
+        <update_guid_history>3e21bb992deb3650be3933df2df92007:722655906,d7ebeb11a3eb365009628f13dfc48e0b:716700717,8ba58704d0ebba1032865f7abef986ab:-1350119036,f61543c08debba10d5ef07868c82f4f4:1002660351</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:00:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>0f32d333a6b7480b85eac2a3567b0009</sys_id>
+        <sys_metadata>e2c40b800febba102e576dd530d1b20f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CCSFlowSwitchByDT</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_scope_delete display_value="">41f55643b9304baa94ae148183eeee04</sys_scope_delete>
+        <sys_update_name>sys_script_include_e2c40b800febba102e576dd530d1b20f</sys_update_name>
+        <sys_update_version display_value="sys_script_include_e2c40b800febba102e576dd530d1b20f">fe21bb990feb36502e576dd530d1b208</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 08:00:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

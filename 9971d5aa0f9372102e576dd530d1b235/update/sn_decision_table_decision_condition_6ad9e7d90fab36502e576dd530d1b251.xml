@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition">
+    <sn_decision_table_decision_condition action="INSERT_OR_UPDATE">
+        <decision_input display_value="u_date">12d9e3d90fab36502e576dd530d1b260</decision_input>
+        <decision_table display_value="flow_and_script_decision_testv2">12d9e3d90fab36502e576dd530d1b25b</decision_table>
+        <default_operator>BETWEEN</default_operator>
+        <description/>
+        <field/>
+        <field_label/>
+        <field_parent_table/>
+        <label>date</label>
+        <order>100</order>
+        <parent/>
+        <reference/>
+        <sys_class_name>sn_decision_table_decision_condition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 06:55:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>6ad9e7d90fab36502e576dd530d1b251</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sn_decision_table_decision_condition_6ad9e7d90fab36502e576dd530d1b251</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 06:55:01</sys_updated_on>
+        <type display_value="Date">a3a73875c611227800e6f970ea4c7410</type>
+    </sn_decision_table_decision_condition>
+</record_update>

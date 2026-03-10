@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_question">
+    <sys_decision_question action="DELETE">
+        <active>true</active>
+        <answer>3ed9e7d90fab36502e576dd530d1b2bd</answer>
+        <condition table="var__m_sys_decision_input_12d9e3d90fab36502e576dd530d1b25b">u_dateBETWEENjavascript:gs.dateGenerate('2026-04-01','start')@javascript:gs.dateGenerate('2027-03-31','end')^u_reco_pro_id=648936880f6bba102e576dd530d1b233^EQ<item endquery="false" field="u_date" goto="false" newquery="false" operator="BETWEEN" or="false" value="javascript:gs.dateGenerate('2026-04-01','start')@javascript:gs.dateGenerate('2027-03-31','end')"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <decision_table display_value="flow_and_script_decision_testv2">12d9e3d90fab36502e576dd530d1b25b</decision_table>
+        <default_answer>false</default_answer>
+        <input_table>var__m_sys_decision_input_12d9e3d90fab36502e576dd530d1b25b</input_table>
+        <label>flow_and_script_decision_testv2_200</label>
+        <marked_for_deletion>false</marked_for_deletion>
+        <order>200</order>
+        <sys_class_name>sys_decision_question</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 06:55:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f2d9e7d90fab36502e576dd530d1b2c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>flow_and_script_decision_testv2_200</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sys_decision_question_f2d9e7d90fab36502e576dd530d1b2c2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 06:55:02</sys_updated_on>
+    </sys_decision_question>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test">9971d5aa0f9372102e576dd530d1b235</application>
+        <file_path/>
+        <instance_id>b0e25b9e3bdf7e14986d048aa4e45a4c</instance_id>
+        <instance_name>dev364288</instance_name>
+        <name>sys_decision_question_f2d9e7d90fab36502e576dd530d1b2c2</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_question"><sys_decision_question action="INSERT_OR_UPDATE"><active>true</active><answer>3ed9e7d90fab36502e576dd530d1b2bd</answer><condition table="var__m_sys_decision_input_12d9e3d90fab36502e576dd530d1b25b">u_dateBETWEENjavascript:gs.dateGenerate('2026-04-01','start')@javascript:gs.dateGenerate('2027-03-31','end')^u_reco_pro_id=648936880f6bba102e576dd530d1b233^EQ<item endquery="false" field="u_date" goto="false" newquery="false" operator="BETWEEN" or="false" value="javascript:gs.dateGenerate('2026-04-01','start')@javascript:gs.dateGenerate('2027-03-31','end')"/><item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/></condition><decision_table display_value="flow_and_script_decision_testv2">12d9e3d90fab36502e576dd530d1b25b</decision_table><default_answer>false</default_answer><input_table>var__m_sys_decision_input_12d9e3d90fab36502e576dd530d1b25b</input_table><label>flow_and_script_decision_testv2_200</label><marked_for_deletion>false</marked_for_deletion><order>200</order><sys_class_name>sys_decision_question</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-03-10 06:55:02</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>f2d9e7d90fab36502e576dd530d1b2c2</sys_id><sys_mod_count>0</sys_mod_count><sys_name>flow_and_script_decision_testv2_200</sys_name><sys_overrides/><sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package><sys_policy/><sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope><sys_update_name>sys_decision_question_f2d9e7d90fab36502e576dd530d1b2c2</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-03-10 06:55:02</sys_updated_on></sys_decision_question></record_update>]]></payload>
+        <payload_hash>749747737</payload_hash>
+        <record_name>flow_and_script_decision_testv2_200</record_name>
+        <reverted_from/>
+        <source>f1f1e3cc0fabba102e576dd530d1b2be</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 06:55:02</sys_created_on>
+        <sys_id>3ad9e7d90fab36502e576dd530d1b2c9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19cd687124f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 06:55:02</sys_updated_on>
+        <type>Decision</type>
+        <update_guid>f6d9e7d977ab36509c1b506bfdc616c8</update_guid>
+        <update_guid_history>f6d9e7d977ab36509c1b506bfdc616c8:749747737</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 06:55:46</sys_created_on>
+        <sys_db_object display_value="" name="sys_decision_question">sys_decision_question</sys_db_object>
+        <sys_id>8809c58dde9548b090d5185cceb73040</sys_id>
+        <sys_metadata>f2d9e7d90fab36502e576dd530d1b2c2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>flow_and_script_decision_testv2_200</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_scope_delete display_value="">41f55643b9304baa94ae148183eeee04</sys_scope_delete>
+        <sys_update_name>sys_decision_question_f2d9e7d90fab36502e576dd530d1b2c2</sys_update_name>
+        <sys_update_version display_value="sys_decision_question_f2d9e7d90fab36502e576dd530d1b2c2">3ad9e7d90fab36502e576dd530d1b2c9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 06:55:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

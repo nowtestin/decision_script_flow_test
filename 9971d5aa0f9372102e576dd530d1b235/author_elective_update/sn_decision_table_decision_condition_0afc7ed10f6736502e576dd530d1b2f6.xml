@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition">
+    <sn_decision_table_decision_condition action="DELETE">
+        <decision_input display_value="reco_pro_id">20bcf2d10f6736502e576dd530d1b2a9</decision_input>
+        <decision_table display_value="flow_and_script_decision_test delta">c0bcb2910f6736502e576dd530d1b24e</decision_table>
+        <default_operator>=</default_operator>
+        <description>帳票ID</description>
+        <field/>
+        <field_label/>
+        <field_parent_table/>
+        <label>reco_pro_id</label>
+        <order>50</order>
+        <parent/>
+        <reference display_value="Catalog Item" name="sc_cat_item">1c7f620a187632108bb255f46a373aa4</reference>
+        <sys_class_name>sn_decision_table_decision_condition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 03:38:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>0afc7ed10f6736502e576dd530d1b2f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sn_decision_table_decision_condition_0afc7ed10f6736502e576dd530d1b2f6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 03:38:55</sys_updated_on>
+        <type display_value="Reference">52a227c1bf3320001875647fcf07396a</type>
+    </sn_decision_table_decision_condition>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test">9971d5aa0f9372102e576dd530d1b235</application>
+        <file_path/>
+        <instance_id>b0e25b9e3bdf7e14986d048aa4e45a4c</instance_id>
+        <instance_name>dev364288</instance_name>
+        <name>sn_decision_table_decision_condition_0afc7ed10f6736502e576dd530d1b2f6</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition"><sn_decision_table_decision_condition action="INSERT_OR_UPDATE"><decision_input display_value="reco_pro_id">20bcf2d10f6736502e576dd530d1b2a9</decision_input><decision_table display_value="flow_and_script_decision_test delta">c0bcb2910f6736502e576dd530d1b24e</decision_table><default_operator>=</default_operator><description>帳票ID</description><field/><field_label/><field_parent_table/><label>reco_pro_id</label><order>50</order><parent/><reference display_value="Catalog Item" name="sc_cat_item">1c7f620a187632108bb255f46a373aa4</reference><sys_class_name>sn_decision_table_decision_condition</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-03-10 03:38:55</sys_created_on><sys_domain>global</sys_domain><sys_id>0afc7ed10f6736502e576dd530d1b2f6</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package><sys_policy/><sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope><sys_update_name>sn_decision_table_decision_condition_0afc7ed10f6736502e576dd530d1b2f6</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-03-10 03:38:55</sys_updated_on><type display_value="Reference">52a227c1bf3320001875647fcf07396a</type></sn_decision_table_decision_condition></record_update>]]></payload>
+        <payload_hash>-1512382397</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>f1f1e3cc0fabba102e576dd530d1b2be</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 03:38:55</sys_created_on>
+        <sys_id>8afc7ed10f6736502e576dd530d1b2fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19cd5d388460000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 03:38:55</sys_updated_on>
+        <type>Decision Condition</type>
+        <update_guid>4afc7ed1e3673650915119a1c1c0f9f9</update_guid>
+        <update_guid_history>4afc7ed1e3673650915119a1c1c0f9f9:-1512382397</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">5c0d32150f6736502e576dd530d1b255</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 03:39:04</sys_created_on>
+        <sys_db_object display_value="" name="sn_decision_table_decision_condition">sn_decision_table_decision_condition</sys_db_object>
+        <sys_id>044c1a70abb945248036c07d9ed849d9</sys_id>
+        <sys_metadata>0afc7ed10f6736502e576dd530d1b2f6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_scope_delete display_value="">41f55643b9304baa94ae148183eeee04</sys_scope_delete>
+        <sys_update_name>sn_decision_table_decision_condition_0afc7ed10f6736502e576dd530d1b2f6</sys_update_name>
+        <sys_update_version display_value="sn_decision_table_decision_condition_0afc7ed10f6736502e576dd530d1b2f6">8afc7ed10f6736502e576dd530d1b2fa</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 03:39:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

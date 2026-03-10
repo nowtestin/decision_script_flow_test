@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition">
+    <sn_decision_table_decision_condition action="DELETE">
+        <decision_input display_value="u_date">7789f7d90f2f36502e576dd530d1b216</decision_input>
+        <decision_table display_value="flow_and_script_decision_testv2 delta">2f89f7d90f2f36502e576dd530d1b20f</decision_table>
+        <default_operator>BETWEEN</default_operator>
+        <description/>
+        <field/>
+        <field_label/>
+        <field_parent_table/>
+        <label>date</label>
+        <order>100</order>
+        <parent display_value="">6ad9e7d90fab36502e576dd530d1b251</parent>
+        <reference/>
+        <sys_class_name>sn_decision_table_decision_condition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:03:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>ec993bd90f2f36502e576dd530d1b23d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sn_decision_table_decision_condition_ec993bd90f2f36502e576dd530d1b23d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 08:03:41</sys_updated_on>
+        <type display_value="Date">a3a73875c611227800e6f970ea4c7410</type>
+    </sn_decision_table_decision_condition>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test">9971d5aa0f9372102e576dd530d1b235</application>
+        <file_path/>
+        <instance_id>b0e25b9e3bdf7e14986d048aa4e45a4c</instance_id>
+        <instance_name>dev364288</instance_name>
+        <name>sn_decision_table_decision_condition_ec993bd90f2f36502e576dd530d1b23d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition"><sn_decision_table_decision_condition action="INSERT_OR_UPDATE"><decision_input display_value="u_date">7789f7d90f2f36502e576dd530d1b216</decision_input><decision_table display_value="flow_and_script_decision_testv2 delta">2f89f7d90f2f36502e576dd530d1b20f</decision_table><default_operator>BETWEEN</default_operator><description/><field/><field_label/><field_parent_table/><label>date</label><order>100</order><parent display_value="">6ad9e7d90fab36502e576dd530d1b251</parent><reference/><sys_class_name>sn_decision_table_decision_condition</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-03-10 08:03:41</sys_created_on><sys_domain>global</sys_domain><sys_id>ec993bd90f2f36502e576dd530d1b23d</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package><sys_policy/><sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope><sys_update_name>sn_decision_table_decision_condition_ec993bd90f2f36502e576dd530d1b23d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-03-10 08:03:41</sys_updated_on><type display_value="Date">a3a73875c611227800e6f970ea4c7410</type></sn_decision_table_decision_condition></record_update>]]></payload>
+        <payload_hash>18632096</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>f1f1e3cc0fabba102e576dd530d1b2be</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:03:41</sys_created_on>
+        <sys_id>a8993bd90f2f36502e576dd530d1b242</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19cd6c5edbb0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 08:03:41</sys_updated_on>
+        <type>Decision Condition</type>
+        <update_guid>28993bd9282f3650039d7b3b4a31ba41</update_guid>
+        <update_guid_history>28993bd9282f3650039d7b3b4a31ba41:18632096</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">e3cb37110f6f36502e576dd530d1b24e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 08:13:27</sys_created_on>
+        <sys_db_object display_value="" name="sn_decision_table_decision_condition">sn_decision_table_decision_condition</sys_db_object>
+        <sys_id>168b037001c44c1882bcbd4520ee9810</sys_id>
+        <sys_metadata>ec993bd90f2f36502e576dd530d1b23d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_scope_delete display_value="">41f55643b9304baa94ae148183eeee04</sys_scope_delete>
+        <sys_update_name>sn_decision_table_decision_condition_ec993bd90f2f36502e576dd530d1b23d</sys_update_name>
+        <sys_update_version display_value="sn_decision_table_decision_condition_ec993bd90f2f36502e576dd530d1b23d">a8993bd90f2f36502e576dd530d1b242</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-10 08:13:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
