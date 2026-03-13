@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_846092_test.CatalogFlowScriptManager</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>1件戻る例&#13;
+dtAPI.getDecision()</description>
+        <mobile_callable>false</mobile_callable>
+        <name>CatalogFlowScriptManager</name>
+        <sandbox_callable>true</sandbox_callable>
+        <script><![CDATA[var CatalogFlowScriptManager = Class.create();
+CatalogFlowScriptManager.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+
+    // メイン実行メソッド（Scheduleから呼び出し）
+    executeAutoSwitch: function() {
+        try {
+            // 1. Decision Tableから条件に一致する結果を取得
+            var dtResults = this.getDecisionTableResults();
+            if (!dtResults || dtResults.length === 0) {
+                gs.warn("Decision Tableに該当する結果が存在しません");
+                return;
+            }
+        var result = JSON.parse(dtResults);
+/*gs.info("dtResults" + result);
+gs.info('u_reco_pro_id:'+result.u_reco_pro_id);
+gs.info('u_script_name'+result.u_script_name);
+gs.info('u_type'+result.u_type);*/
+
+				var u_reco_pro_id = result.u_reco_pro_id;
+				var u_script_name = result.u_script_name;
+				var u_type = result.u_type;
+
+                // 3. u_typeに応じてScript/Flowを分岐処理
+                if (u_type === "script") {
+                    this.handleScriptSwitch(u_reco_pro_id, u_script_name);
+                } else if (result.u_type === "flow") {
+                    this.handleFlowSwitch(targetAppIds, result.u_flow_name);
+                } else {
+                    gs.warn("不明なu_typeが指定されています: " + result.u_type);
+                }
+
+            return true;
+        } catch (e) {
+            gs.error("Script/Flow切替処理中にエラー発生: " + e.getMessage() + " (行番号: " + e.getLineNumber() + ")");
+        }
+    },
+
+
+    // Decision Tableから結果を取得（u_date条件対応）
+    getDecisionTableResults: function() {
+        // Input条件：現在日付（u_date）
+        var currentDate = new GlideDate();
+        var inputs = {};
+        inputs['u_date'] = currentDate;
+        /*var inputParams = {
+            u_date: new GlideDate() // 実行日の日付をInputに設定
+        };*/
+        // flow_and_script_decision_testv2のSys IDに置き換えてください
+        var dtSysId = '12d9e3d90fab36502e576dd530d1b25b';
+        var dtAPI = new sn_dt.DecisionTableAPI();
+        // Decision Table実行一レコードを取得
+         var response = dtAPI.getDecision(dtSysId, inputs);
+         var result_elements = response.result_elements;
+//gs.info("result_elements" + JSON.stringify(result_elements));
+         var results = {
+             'u_reco_pro_id': result_elements.u_reco_pro_id.getValue() || "",
+             'u_type': result_elements.u_type.getValue() || "",
+             'u_script_name': result_elements.u_script_name.getValue() || "",
+             'u_flow_name': result_elements.u_flow_name.getValue() || ""
+         };
+         //}
+//gs.info("results: " + JSON.stringify(results));
+         return JSON.stringify(results);
+    },
+
+    // Catalog Client Scriptの切替処理
+    handleScriptSwitch: function(appId, targetScriptName) {
+
+            gs.info("Script切替対象appId: " + appId);
+            gs.info("Script切替対象Script: " + targetScriptName);
+
+            // 1. 対象appIdの全Catalog Client ScriptをActive=falseに
+            var grScript = new GlideRecord("catalog_script_client");
+            grScript.addQuery("sys_scope", appId);
+            grScript.addQuery("sys_id", targetScriptName);
+            grScript.query();
+            while (grScript.next()) {
+                //grScript.active = false;
+                //grScript.update();
+                gs.info("Script無効化: " + grScript.name + " (sys_id: " + grScript.sys_id + ")");
+            } 
+
+    },
+
+        // Flowの切替処理（u_app_id対応、sys_hub_flowテーブル）
+        handleFlowSwitch: function(appId, targetFlowName) {
+
+                gs.info("Flow切替対象appId: " + appId);
+
+                // 1. 対象appIdの全FlowをActive=falseに
+                var grFlow = new GlideRecord("sys_hub_flow");
+                grFlow.addQuery("sys_scope", appId);
+                grFlow.addQuery("sys_id", targetFlowName);
+                grFlow.query();
+                while (grFlow.next()) {
+                    //grFlow.active = false;
+                    //grFlow.update();
+                    gs.info("Flow無効化: " + grFlow.name + " (sys_id: " + grFlow.sys_id + ")");
+                }
+
+        },
+    type: 'CatalogFlowScriptManager'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-10 09:37:26</sys_created_on>
+        <sys_id>dbce44e50fef36502e576dd530d1b264</sys_id>
+        <sys_mod_count>58</sys_mod_count>
+        <sys_name>CatalogFlowScriptManager</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sys_script_include_dbce44e50fef36502e576dd530d1b264</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-13 08:56:10</sys_updated_on>
+    </sys_script_include>
+</record_update>

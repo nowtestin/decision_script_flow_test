@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_846092_test.CatalogFlowScriptManagerv2</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>複数件戻る例&#13;
+dtAPI.getDecisions()</description>
+        <mobile_callable>false</mobile_callable>
+        <name>CatalogFlowScriptManagerv2</name>
+        <sandbox_callable>true</sandbox_callable>
+        <script><![CDATA[var CatalogFlowScriptManagerv2 = Class.create();
+CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    // メイン実行メソッド（Scheduleから呼び出し）
+    executeAutoSwitch: function() {
+        try {
+            // 1. Decision Tableから条件に一致する結果を取得
+            var type = this.getParameter('type');
+            var response = this.getDecisionTableResults(type);
+            if (!response || response.length === 0) {
+                gs.warn("Decision Tableに該当する結果が存在しません");
+                return;
+            }
+            var currentDate = new GlideDate();
+            // 2. Decision Tableの結果をループ処理（複数件対応）
+            for (var i = 0; i < response.length; i++) {
+                var result_elements = response[i].result_elements;
+                var u_start_date = response[i].result_elements.u_start_date;
+                //gs.info("u_start_date" + u_start_date);  				
+                var u_end_date = result_elements.u_end_date;
+                //gs.info("u_end_date" + u_end_date); 
+                if (type === 'script') {
+                    var u_name = result_elements.u_script_name;
+                    //gs.info("u_script_name" + u_script_name);
+                } else if (type === 'flow') {
+                     u_name = result_elements.u_flow_name;
+                }
+                // 3. 日付に応じてActive/Deactiveを分岐処理
+                //有効期限内（有効期限開始日＜＝システム日付＜＝有効期限終了日）、Active
+                if (currentDate >= u_start_date && currentDate <= u_end_date) {
+                    this.handleSwitch_active(type, u_name);
+                    //有効期限以外（システム日付＜有効期限開始日、またはシステム日付＞有効期限終了日）、Deactive
+                } else if (currentDate < u_start_date || currentDate > u_end_date) {
+                    this.handleSwitch_deactive(type, u_name);
+                } else {
+                    gs.warn("不明なu_typeが指定されています: " + JSON.stringify(result_elements));
+                }
+            }
+
+            gs.info("=== Script/Flow自動切替処理完了 ===");
+            return true;
+        } catch (e) {
+            gs.error("Script/Flow切替処理中にエラー発生: " + e.getMessage() + " (行番号: " + e.getLineNumber() + ")");
+        }
+    },
+
+
+    // Decision Tableから結果を取得（u_date条件対応）
+    getDecisionTableResults: function(type) {
+        // Input条件：現在日付（u_date）
+        var inputs = {};
+        inputs['u_type'] = type;
+        gs.info("inputs" + JSON.stringify(inputs));
+        // flow_and_script_decision_testv1のSys IDに置き換えてください
+        var dtSysId = '9f0f31d20f6bfa502e576dd530d1b220';
+        var dtAPI = new sn_dt.DecisionTableAPI();
+        // Decision Table実行一レコードを取得
+        var response = dtAPI.getDecisions(dtSysId, inputs);
+        gs.info("response" + JSON.stringify(response));
+        return response;
+
+    },
+
+
+    // システム日付は有効期限内の時、ScriptかFlowかActive切替え
+    handleSwitch_active: function(type, targetName) {
+        gs.info("Active対象: " + targetName);
+
+        // 有効期限内のものをActive=trueに設定する。
+        if (type === 'script') {
+            var gr_scr = new GlideRecord("catalog_script_client");
+            gr_scr.addQuery("sys_id", targetName);
+            gr_scr.query();
+            if (gr_scr.next()) {
+                //gr_scr.active = true;
+                //gr_scr.update();
+                gs.info("Script有効化: " + gr_scr.name + " (sys_id: " + gr_scr.sys_id + ")");
+            } else {
+                gs.warn("指定されたScriptが存在しません: scriptName=" + targetName);
+            }
+
+        } else if (type === 'flow') {
+            var gr_fl = new GlideRecord("sys_hub_flow");
+            gr_fl.addQuery("sys_id", targetName);
+            gr_fl.query();
+            if (gr_fl.next()) {
+                //gr_fl.active = true;
+                //gr_fl.update();
+                gs.info("Flow有効化: " + gr_fl.name + " (sys_id: " + gr_fl.sys_id + ")");
+            } else {
+                gs.warn("指定されたScriptが存在しません: flowName=" + targetName);
+            }
+        }
+    },
+
+
+    // システム日付は有効期限以外、ScriptかFlowかDeactive切替え
+    handleSwitch_deactive: function(type, targetName) {
+
+        gs.info("Deactive対象: " + targetName);
+
+        // 有効期限内のものをActive=trueに設定する。
+        if (type === 'script') {
+            var gr_scr = new GlideRecord("catalog_script_client");
+            gr_scr.addQuery("sys_id", targetName);
+            gr_scr.query();
+            if (gr_scr.next()) {
+                //gr_scr.active = false;
+                //gr_scr.update();
+                gs.info("Script無効化: " + gr_scr.name + " (sys_id: " + gr_scr.sys_id + ")");
+            } else {
+                gs.warn("指定されたScriptが存在しません: scriptName=" + targetName);
+            }
+
+        } else if (type === 'flow') {
+            var gr_fl = new GlideRecord("sys_hub_flow");
+            gr_fl.addQuery("sys_id", targetName);
+            gr_fl.query();
+            if (gr_fl.next()) {
+                //gr_fl.active = false;
+                //gr_fl.update();
+                gs.info("Flow無効化: " + gr_fl.name + " (sys_id: " + gr_fl.sys_id + ")");
+            } else {
+                gs.warn("指定されたScriptが存在しません: flowName=" + targetName);
+            }
+        }
+    },
+
+    type: 'CatalogFlowScriptManagerv2'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-12 08:45:03</sys_created_on>
+        <sys_id>6af552460f6f7a502e576dd530d1b283</sys_id>
+        <sys_mod_count>51</sys_mod_count>
+        <sys_name>CatalogFlowScriptManagerv2</sys_name>
+        <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
+        <sys_update_name>sys_script_include_6af552460f6f7a502e576dd530d1b283</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-13 10:00:20</sys_updated_on>
+    </sys_script_include>
+</record_update>
