@@ -14,10 +14,10 @@ dtAPI.getDecisions()</description>
 CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
     // メイン実行メソッド（Scheduleから呼び出し）
-    executeAutoSwitch: function() {
+    executeAutoSwitch: function(type) {
         try {
             // 1. Decision Tableから条件に一致する結果を取得
-            var type = this.getParameter('type');
+            //var type = this.getParameter('type');
             var response = this.getDecisionTableResults(type);
             if (!response || response.length === 0) {
                 gs.warn("Decision Tableに該当する結果が存在しません");
@@ -28,12 +28,12 @@ CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxP
             for (var i = 0; i < response.length; i++) {
                 var result_elements = response[i].result_elements;
                 var u_start_date = response[i].result_elements.u_start_date;
-                //gs.info("u_start_date" + u_start_date);  				
+//gs.info("u_start_date" + u_start_date);  				
                 var u_end_date = result_elements.u_end_date;
-                //gs.info("u_end_date" + u_end_date); 
+//gs.info("u_end_date" + u_end_date); 
                 if (type === 'script') {
                     var u_name = result_elements.u_script_name;
-                    //gs.info("u_script_name" + u_script_name);
+//gs.info("u_script_name" + u_script_name);
                 } else if (type === 'flow') {
                      u_name = result_elements.u_flow_name;
                 }
@@ -62,13 +62,13 @@ CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxP
         // Input条件：現在日付（u_date）
         var inputs = {};
         inputs['u_type'] = type;
-        gs.info("inputs" + JSON.stringify(inputs));
+        //gs.info("inputs" + JSON.stringify(inputs));
         // flow_and_script_decision_testv1のSys IDに置き換えてください
         var dtSysId = '9f0f31d20f6bfa502e576dd530d1b220';
         var dtAPI = new sn_dt.DecisionTableAPI();
         // Decision Table実行一レコードを取得
         var response = dtAPI.getDecisions(dtSysId, inputs);
-        gs.info("response" + JSON.stringify(response));
+        //gs.info("response" + JSON.stringify(response));
         return response;
 
     },
@@ -144,13 +144,13 @@ CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxP
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-03-12 08:45:03</sys_created_on>
         <sys_id>6af552460f6f7a502e576dd530d1b283</sys_id>
-        <sys_mod_count>51</sys_mod_count>
+        <sys_mod_count>54</sys_mod_count>
         <sys_name>CatalogFlowScriptManagerv2</sys_name>
         <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
         <sys_update_name>sys_script_include_6af552460f6f7a502e576dd530d1b283</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-13 10:00:20</sys_updated_on>
+        <sys_updated_on>2026-03-16 03:54:33</sys_updated_on>
     </sys_script_include>
 </record_update>
