@@ -117,8 +117,8 @@ CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxP
             gr_scr.addQuery("sys_id", targetName);
             gr_scr.query();
             if (gr_scr.next()) {
-                //gr_scr.active = false;
-                //gr_scr.update();
+                gr_scr.active = false;
+                gr_scr.update();
                 gs.info("Script無効化: " + gr_scr.name + " (sys_id: " + gr_scr.sys_id + ")");
             } else {
                 gs.warn("指定されたScriptが存在しません: scriptName=" + targetName);
@@ -129,8 +129,8 @@ CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxP
             gr_fl.addQuery("sys_id", targetName);
             gr_fl.query();
             if (gr_fl.next()) {
-                //gr_fl.active = false;
-                //gr_fl.update();
+                gr_fl.active = false;
+                gr_fl.update();
                 gs.info("Flow無効化: " + gr_fl.name + " (sys_id: " + gr_fl.sys_id + ")");
             } else {
                 gs.warn("指定されたScriptが存在しません: flowName=" + targetName);
@@ -144,13 +144,13 @@ CatalogFlowScriptManagerv2.prototype = Object.extendsObject(global.AbstractAjaxP
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-03-12 08:45:03</sys_created_on>
         <sys_id>6af552460f6f7a502e576dd530d1b283</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>CatalogFlowScriptManagerv2</sys_name>
         <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
         <sys_update_name>sys_script_include_6af552460f6f7a502e576dd530d1b283</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-16 03:54:33</sys_updated_on>
+        <sys_updated_on>2026-03-17 05:50:59</sys_updated_on>
     </sys_script_include>
 </record_update>

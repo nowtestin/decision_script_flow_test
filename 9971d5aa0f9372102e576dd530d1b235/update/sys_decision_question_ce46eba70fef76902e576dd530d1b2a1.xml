@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_question">
     <sys_decision_question action="INSERT_OR_UPDATE">
         <active>true</active>
-        <answer>3d0022160f6ffa502e576dd530d1b230</answer>
-        <condition table="var__m_sys_decision_input_9f0f31d20f6bfa502e576dd530d1b220">u_type=script^EQ<item endquery="false" field="u_type" goto="false" newquery="false" operator="=" or="false" value="script"/>
+        <answer>9b462fa70fef76902e576dd530d1b2f7</answer>
+        <condition table="var__m_sys_decision_input_9f0f31d20f6bfa502e576dd530d1b220">u_type=flow^EQ<item endquery="false" field="u_type" goto="false" newquery="false" operator="=" or="false" value="flow"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <decision_table display_value="flow_and_script_decision_testv1">9f0f31d20f6bfa502e576dd530d1b220</decision_table>
         <default_answer>false</default_answer>
         <input_table>var__m_sys_decision_input_9f0f31d20f6bfa502e576dd530d1b220</input_table>
-        <label>flow_and_script_decision_testv1_100</label>
+        <label>flow_and_script_decision_testv1_450</label>
         <marked_for_deletion>false</marked_for_deletion>
-        <order>100</order>
+        <order>450</order>
         <sys_class_name>sys_decision_question</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-03-13 04:06:14</sys_created_on>
+        <sys_created_on>2026-03-17 06:25:45</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>53ff1ed20f6ffa502e576dd530d1b236</sys_id>
+        <sys_id>ce46eba70fef76902e576dd530d1b2a1</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name>flow_and_script_decision_testv1_100</sys_name>
+        <sys_name>flow_and_script_decision_testv1_450</sys_name>
         <sys_overrides/>
         <sys_package display_value="test" source="x_846092_test">9971d5aa0f9372102e576dd530d1b235</sys_package>
         <sys_policy/>
         <sys_scope display_value="test">9971d5aa0f9372102e576dd530d1b235</sys_scope>
-        <sys_update_name>sys_decision_question_53ff1ed20f6ffa502e576dd530d1b236</sys_update_name>
+        <sys_update_name>sys_decision_question_ce46eba70fef76902e576dd530d1b2a1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-13 04:06:24</sys_updated_on>
+        <sys_updated_on>2026-03-17 06:25:50</sys_updated_on>
     </sys_decision_question>
 </record_update>
